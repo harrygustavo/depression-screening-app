@@ -99,7 +99,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://18.224.7.77",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "http://depression-screening-app-nginx-1"
 ]
 
 CORS_ORIGIN_WHITELIST = [
