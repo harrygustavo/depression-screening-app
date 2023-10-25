@@ -6,6 +6,8 @@
 version: "3"
 services:
   api:
+    ports:
+      - "8000:8000"
     image: $DOCKERHUB_UNAME/api-prod:$NEW_VERSION 
     environment:
       - SECRET_KEY=$SECRET_KEY
