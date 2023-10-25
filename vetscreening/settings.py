@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': 'vetscreening_db',
         'USER': 'harrymiranda',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
