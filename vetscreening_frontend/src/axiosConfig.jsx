@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/', // Replace with your Django backend base URL
+    baseURL: 'http://18.224.7.77/api/', // Replace with your Django backend base URL
 });
 
 export const setAuthToken = token => {
