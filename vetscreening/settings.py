@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': 'vetscreening_db',
         'USER': 'harrymiranda',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -98,12 +98,10 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-     "http://18.224.7.77"
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:5173",
-    "http://18.224.7.77"  #
+    "http://localhost:5173",  #
 ]
 
 
