@@ -6,9 +6,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = True  # Remember to set this to False in a production environment
+DEBUG = False  # Remember to set this to False in a production environment
 
-ALLOWED_HOSTS = ['*']  # Consider specifying allowed hosts in a production environment
+ALLOWED_HOSTS = ["*"]  # Consider specifying allowed hosts in a production environment
+
+CSRF_TRUSTED_ORIGINS = ["*"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -100,14 +102,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://18.224.7.77",
     "http://127.0.0.1:5173",
-    "http://nginx"
+    
 ]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
     "http://18.224.7.77",
     "http://127.0.0.1:5173",
-    "http://nginx" #
+    
 ]
 
 
