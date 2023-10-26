@@ -10,7 +10,6 @@ DEBUG = False  # Remember to set this to False in a production environment
 
 ALLOWED_HOSTS = ["*"]  # Consider specifying allowed hosts in a production environment
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,10 +57,10 @@ WSGI_APPLICATION = 'vetscreening.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
+        'NAME': 'vetscreening_db',
+        'USER': 'harrymiranda',
+        'PASSWORD': 'password',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
