@@ -10,7 +10,6 @@ DEBUG = False  # Remember to set this to False in a production environment
 
 ALLOWED_HOSTS = ["*"]  # Consider specifying allowed hosts in a production environment
 
-CSRF_TRUSTED_ORIGINS = ["*"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
