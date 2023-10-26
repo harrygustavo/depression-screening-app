@@ -59,9 +59,9 @@ WSGI_APPLICATION = 'vetscreening.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vetscreening_db',
-        'USER': 'harrymiranda',
-        'PASSWORD': 'password',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -97,18 +97,34 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True  # Adjust as necessary based on your security requirements
 CORS_ALLOW_CREDENTIALS = True
 
+CORS_ALLOW_ALL_ORIGINS = False 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://3.87.27.78",
+    "http://127.0.0.1:5173",
+    # Add any other origins you want to allow
+]
+
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://18.224.7.77",
+    "http://3.87.27.78",
     "http://127.0.0.1:5173",
+    "http://127.0.0.1:80",
+    "http://3.87.27.78:80",
+    "http://3.87.27.78:8000"
+    
     
 ]
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
-    "http://18.224.7.77",
+    "http://3.87.27.78",
     "http://127.0.0.1:5173",
+    "http://127.0.0.1:80"
+    "http://3.87.27.78:80",
+    "http://3.87.27.78:8000"
     
 ]
 

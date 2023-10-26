@@ -6,9 +6,8 @@
 version: "3"
 services:
   api:
-    ports:
-      - "8000:8000"
-    image: $DOCKERHUB_UNAME/api-prod:$NEW_VERSION 
+    build: ./
+    image: harrymiranda/veterans_depression_screening-api:latest
     environment:
       - SECRET_KEY=$SECRET_KEY
       - DEBUG=$DEBUG
@@ -18,7 +17,7 @@ services:
     depends_on:
       - db
   nginx:
-    image: $DOCKERHUB_UNAME/webserver-prod:$NEW_VERSION
+    image: harrymiranda/veterans_depression_screening-nginx:latest
     restart: always
     ports:
       - "80:80"
