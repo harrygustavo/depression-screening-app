@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False  # Remember to set this to False in a production environment
 
-ALLOWED_HOSTS = ["*"]  # Consider specifying allowed hosts in a production environment
+ALLOWED_HOSTS = ["*"] 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
