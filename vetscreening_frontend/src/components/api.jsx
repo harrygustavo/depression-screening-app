@@ -7,7 +7,7 @@ const getToken = () => {
 
 // Axios instance with default headers
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8000/api/', // Your API URL
+  baseURL: `http://${base_url}/api/`, // Your API URL
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${getToken()}`, // Include the token here

@@ -60,7 +60,7 @@ const PHQ9Questionnaire = () => {
 
         // Send the JSON payload in the Axios request with the Authorization header
         try {
-            const response = await axios.post('http://localhost:8000/api/users/phq9/create/', payload, {
+            const response = await axios.post(`http://${base_url}/api/users/phq9/create/`, payload, {
                 headers: {
                     'Authorization': `Token ${token}`, // Include the token in the Authorization header
                     'Content-Type': 'application/json', // Specify JSON content type

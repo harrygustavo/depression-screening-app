@@ -18,7 +18,7 @@ const Registration = () => {
             return;
         }
 
-        axios.post('http://localhost:8000/api/users/register/', {
+        axios.post(`http://${base_url}/api/users/register/`, {
             username: username,
             zip_code: zip,
             password: password,

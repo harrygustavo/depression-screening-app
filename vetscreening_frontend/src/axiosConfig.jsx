@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+
+const base_url = import.meta.env.VITE_BASE_URL
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api/', // Replace with your Django backend base URL
+    baseURL: `http://${base_url}/api/`, // Replace with your Django backend base URL
 });
 
 export const setAuthToken = token => {

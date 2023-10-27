@@ -95,24 +95,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True  # Adjust as necessary based on your security requirements
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://3.87.27.78",
-    "http://127.0.0.1:5173",
-    # Add any other origins you want to allow
-]
-
-
-    
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:5173",
-    "http://3.87.27.78",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:80",
-    "http://3.87.27.78:80",
-    "http://3.87.27.78:8000"
-    
-]
 
 
 # Rest Framework settings

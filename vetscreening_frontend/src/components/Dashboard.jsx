@@ -21,7 +21,7 @@ const Dashboard = () => {
 
     const fetchPHQ9History = async (token) => {
         try {
-            const response = await axios.get('http://localhost:8000/api/users/phq9/list/', {
+            const response = await axios.get(`http://${base_url}/api/users/phq9/list/`, {
                 headers: {
                     'Authorization': `Token ${token}`,
                 },
