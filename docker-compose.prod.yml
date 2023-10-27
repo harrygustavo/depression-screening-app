@@ -7,7 +7,7 @@ version: "3"
 services:
   api:
     build: ./
-    image: harrymiranda/api-prod:version0
+    image: harrymiranda/api-prod:version1
     environment:
       - SECRET_KEY=$SECRET_KEY
       - DEBUG=$DEBUG
@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
   nginx:
-    image: harrymiranda/webserver-prod:version0
+    image: harrymiranda/webserver-prod:version1
     restart: always
     ports:
       - "80:80"
