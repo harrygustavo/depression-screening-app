@@ -103,18 +103,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://3.87.27.78",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:80",
-    "http://3.87.27.78:80",
-    "http://3.87.27.78:8000"
     
-    
-]
-
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
     "http://3.87.27.78",
