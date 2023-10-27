@@ -17,6 +17,7 @@ services:
       - DB_PASS=$DB_PASS
       - DB_HOST=db
       - DB_PORT=5432
+      - GOOGLE_API_KEY=$GOOGLE_API_KEY
     depends_on:
       - db
   nginx:
