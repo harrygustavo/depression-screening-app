@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+const base_url = import.meta.env.VITE_BASE_URL
+
 const PHQ9Questionnaire = () => {
     const navigate = useNavigate();
     const [answers, setAnswers] = useState(new Array(9).fill(0));

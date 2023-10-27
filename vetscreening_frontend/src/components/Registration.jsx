@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
+const base_url = import.meta.env.VITE_BASE_URL
+
 const Registration = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');

@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
+const base_url = import.meta.env.VITE_BASE_URL
+
 const Dashboard = () => {
     const [phq9History, setPHQ9History] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
+const base_url = import.meta.env.VITE_BASE_URL
+
 const Login = () => {
     const [formData, setFormData] = useState({
         username: '',

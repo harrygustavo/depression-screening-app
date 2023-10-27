@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+const base_url = import.meta.env.VITE_BASE_URL
 // Function to get the token from localStorage
 const getToken = () => {
   return localStorage.getItem('token');
