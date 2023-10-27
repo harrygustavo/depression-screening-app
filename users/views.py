@@ -126,7 +126,7 @@ def get_clinics(request):
     if not latitude or not longitude:
         return HttpResponseBadRequest("Latitude and longitude are required.")
     
-    API_KEY = os.getenv('API_KEY')  # Getting the API key from environment variable
+    API_KEY = os.getenv('GOOGLE_API_KEY')  # Getting the API key from environment variable
     apiUrl = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={latitude},{longitude}&radius=5000&type=clinic&keyword=Veterans%20Affairs&key={API_KEY}"
     
     try:
