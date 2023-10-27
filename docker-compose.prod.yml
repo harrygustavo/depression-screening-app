@@ -7,17 +7,18 @@ version: "3"
 services:
   api:
     build: ./
-    image: harrymiranda/api-prod:version1
+    image: harrymiranda/api-prod:$NEW_VERSION
     environment:
       - SECRET_KEY=$SECRET_KEY
       - DEBUG=$DEBUG
       - DB_NAME=$POSTGRES_DB
       - DB_USER=$POSTGRES_USER
       - DB_PASS=$POSTGRES_PASSWORD
+      - GOOGLE_API_KEY=$GOOGLE_API_KEY
     depends_on:
       - db
   nginx:
-    image: harrymiranda/webserver-prod:version1
+    image: harrymiranda/webserver-prod:$NEW_VERSION
     restart: always
     ports:
       - "80:80"
