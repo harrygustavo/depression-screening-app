@@ -1,15 +1,20 @@
+#########################################
+# The "production" compose file builds 
+# on your EC2 instance
+#########################################
+
 version: "3"
 services:
   api:
     build: ./
     image: harrymiranda/api-prod:$NEW_VERSION
     environment:
-      SECRET_KEY: ${SECRET_KEY}
-      DEBUG: ${DEBUG}
-      DB_NAME: ${POSTGRES_DB}
-      DB_USER: ${POSTGRES_USER}
-      DB_PASS: ${POSTGRES_PASSWORD}
-      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      - SECRET_KEY=$SECRET_KEY
+      - DEBUG=$DEBUG
+      - DB_NAME=$POSTGRES_DB
+      - DB_USER=$POSTGRES_USER
+      - DB_PASS=$POSTGRES_PASSWORD
+      - GOOGLE_API_KEY=$GOOGLE_API_KEY
     depends_on:
       - db
   nginx:
@@ -22,9 +27,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      - POSTGRES_DB=$POSTGRES_DB
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
 
 volumes:
   postgres_data:
