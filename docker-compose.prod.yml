@@ -1,8 +1,3 @@
-#########################################
-# The "production" compose file builds 
-# on your EC2 instance
-#########################################
-
 version: "3"
 services:
   api:
@@ -15,8 +10,6 @@ services:
       DB_USER: ${POSTGRES_USER}
       DB_PASS: ${POSTGRES_PASSWORD}
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
-    env_file:
-      - .env 
     depends_on:
       - db
   nginx:
