@@ -8,6 +8,7 @@ const ResultsPage = () => {
     const { totalScore, answers } = location.state;
 
     const [clinics, setClinics] = useState([]);
+    const [apiFailed, setApiFailed] = useState(false); 
 
     useEffect(() => {
         if (totalScore >= 10) {
@@ -21,10 +22,33 @@ const ResultsPage = () => {
                     })
                     .catch(error => {
                         console.error("Error fetching clinic data:", error);
+                        setApiFailed(true);
                     });
             });
         }
     }, [totalScore]);
+
+    const renderMoreResourcesButton = () => {
+        if (totalScore >= 10 || apiFailed) {
+            return (
+                <button onClick={() => window.open("https://www.veteranscrisisline.net/find-resources/local-resources/", "_blank")} style={{
+                    background: '#002366',
+                    color: '#fff',
+                    padding: '10px 20px',
+                    borderRadius: '5px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    marginTop: '20px',
+                    marginBottom: '20px',
+                    width: '300px',
+                }}>
+                    Find More Local Resources
+                </button>
+            );
+        }
+    };
 
     const renderClinics = () => {
         if (clinics.length > 0) {
@@ -36,21 +60,7 @@ const ResultsPage = () => {
                     backgroundColor: '#B22234'
                 }}>
                     <h4 style={{ marginBottom: '10px' }}>Here you can find Veterans Affairs Clinics and VA Resources close to you:</h4>
-                    <button onClick={() => window.open("https://www.veteranscrisisline.net/find-resources/local-resources/", "_blank")} style={{
-                        background: '#002366',
-                        color: '#fff',
-                        padding: '10px 20px',
-                        borderRadius: '5px',
-                        border: 'none',
-                        cursor: 'pointer',
-                        fontSize: '16px',
-                        fontWeight: 'bold',
-                        marginTop: '20px',
-                        marginBottom: '20px',
-                        width: '300px',
-                    }}>
-                        Find More Local Resources
-                    </button>
+                    {renderMoreResourcesButton()}
                     <ul style={{
                         listStyleType: 'none',
                         padding: '0'
