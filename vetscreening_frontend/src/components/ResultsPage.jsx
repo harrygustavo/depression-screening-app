@@ -8,7 +8,7 @@ const ResultsPage = () => {
     const { totalScore, answers } = location.state;
 
     const [clinics, setClinics] = useState([]);
-    const [apiFailed, setApiFailed] = useState(false); 
+    const [apiFailed, setApiFailed] = useState(false);
 
     useEffect(() => {
         if (totalScore >= 10) {
@@ -28,30 +28,26 @@ const ResultsPage = () => {
         }
     }, [totalScore]);
 
-    const renderMoreResourcesButton = () => {
-        if (totalScore >= 10 || apiFailed) {
-            return (
-                <button onClick={() => window.open("https://www.veteranscrisisline.net/find-resources/local-resources/", "_blank")} style={{
-                    background: '#002366',
-                    color: '#fff',
-                    padding: '10px 20px',
-                    borderRadius: '5px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '16px',
-                    fontWeight: 'bold',
-                    marginTop: '20px',
-                    marginBottom: '20px',
-                    width: '300px',
-                }}>
-                    Find More Local Resources
-                </button>
-            );
-        }
-    };
+    const renderMoreResourcesButton = () => (
+        <button onClick={() => window.open("https://www.veteranscrisisline.net/find-resources/local-resources/", "_blank")} style={{
+            background: '#002366',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            marginTop: '20px',
+            marginBottom: '20px',
+            width: '300px',
+        }}>
+            Find More Local Resources
+        </button>
+    );
 
     const renderClinics = () => {
-        if (clinics.length > 0) {
+        if (clinics.length > 0 || apiFailed) {
             return (
                 <div style={{
                     marginTop: '20px',
@@ -60,7 +56,6 @@ const ResultsPage = () => {
                     backgroundColor: '#B22234'
                 }}>
                     <h4 style={{ marginBottom: '10px' }}>Here you can find Veterans Affairs Clinics and VA Resources close to you:</h4>
-                    {renderMoreResourcesButton()}
                     <ul style={{
                         listStyleType: 'none',
                         padding: '0'
@@ -89,7 +84,12 @@ const ResultsPage = () => {
         } else {
             return (
                 <div>
-                    {totalScore >= 10 && <h3>Your screening is positive: Consult with a physician or mental health clinician.</h3>}
+                    {totalScore >= 10 && (
+                        <div>
+                            <h3>Your screening is positive: Consult with a physician or mental health clinician at your nearest VA Clinic.</h3>
+                            {renderMoreResourcesButton()}
+                        </div>
+                    )}
                     {answers[8] > 0 && (
                         <div>
                             <p>Given your reports of having thoughts of being better off dead or thoughts about hurting yourself, it is recommended you consider the many suicide prevention resources VA has to offer from self-help resources, suicide prevention programs, mental health services, and many more.</p>
