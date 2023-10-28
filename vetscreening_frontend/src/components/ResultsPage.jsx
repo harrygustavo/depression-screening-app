@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-import axios from '../axiosConfig'; // Update the import to use your configured axios instance
+import axios from '../axiosConfig';
 
 const ResultsPage = () => {
     const navigate = useNavigate();
@@ -18,7 +17,7 @@ const ResultsPage = () => {
 
                 axios.get(`/users/clinics/?latitude=${latitude}&longitude=${longitude}`)
                     .then(response => {
-                        setClinics(response.data.results); // Ensure the response has a 'results' field
+                        setClinics(response.data.results);
                     })
                     .catch(error => {
                         console.error("Error fetching clinic data:", error);
@@ -37,6 +36,21 @@ const ResultsPage = () => {
                     backgroundColor: '#B22234'
                 }}>
                     <h4 style={{ marginBottom: '10px' }}>Here you can find Veterans Affairs Clinics and VA Resources close to you:</h4>
+                    <button onClick={() => window.open("https://www.veteranscrisisline.net/find-resources/local-resources/", "_blank")} style={{
+                        background: '#B22234',
+                        color: '#fff',
+                        padding: '10px 20px',
+                        borderRadius: '5px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontSize: '16px',
+                        fontWeight: 'bold',
+                        marginTop: '20px',
+                        marginBottom: '20px',
+                        width: '300px',
+                    }}>
+                        Find More Local Resources
+                    </button>
                     <ul style={{
                         listStyleType: 'none',
                         padding: '0'
