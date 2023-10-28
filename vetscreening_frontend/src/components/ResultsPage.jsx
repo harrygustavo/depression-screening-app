@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-//import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-
 import axios from '../axiosConfig'; // Update the import to use your configured axios instance
 
 const ResultsPage = () => {
@@ -32,23 +30,23 @@ const ResultsPage = () => {
     const renderClinics = () => {
         if (clinics.length > 0) {
             return (
-                <div style={{ 
+                <div style={{
                     marginTop: '20px',
                     padding: '20px',
                     borderRadius: '10px',
                     backgroundColor: '#B22234'
                 }}>
                     <h4 style={{ marginBottom: '10px' }}>Here you can find Veterans Affairs Clinics and VA Resources close to you:</h4>
-                    <ul style={{ 
-                        listStyleType: 'none', 
-                        padding: '0' 
+                    <ul style={{
+                        listStyleType: 'none',
+                        padding: '0'
                     }}>
                         {clinics.map(clinic => (
-                            <li key={clinic.place_id} style={{ 
-                                marginBottom: '15px', 
-                                backgroundColor: '#fff', 
-                                color: '#000', 
-                                borderRadius: '5px', 
+                            <li key={clinic.place_id} style={{
+                                marginBottom: '15px',
+                                backgroundColor: '#fff',
+                                color: '#000',
+                                borderRadius: '5px',
                                 padding: '10px'
                             }}>
                                 <strong>{clinic.name}</strong>
@@ -60,9 +58,6 @@ const ResultsPage = () => {
             );
         }
     };
-    
-
-   
 
     const renderResults = () => {
         if (totalScore < 10 && answers[8] === 0) {
@@ -71,10 +66,9 @@ const ResultsPage = () => {
             return (
                 <div>
                     {totalScore >= 10 && <h3>Your screening is positive: Consult with a physician or mental health clinician.</h3>}
-    
-                    {(totalScore >= 10 || answers[8] > 0) && (
+                    {answers[8] > 0 && (
                         <div>
-                            <p>Given your reports of having thoughts of being better off dead or thoughts about hurting yourself, it is recommended you consider the many suicide prevention resources VA has to offer from self-help resources, suicide prevention programs, mental health services and many more.</p>
+                            <p>Given your reports of having thoughts of being better off dead or thoughts about hurting yourself, it is recommended you consider the many suicide prevention resources VA has to offer from self-help resources, suicide prevention programs, mental health services, and many more.</p>
                             <a
                                 href="https://www.veteranscrisisline.net/"
                                 target="_blank"
@@ -100,45 +94,44 @@ const ResultsPage = () => {
             );
         }
     };
-    
 
     return (
-        <div style={{ 
-            backgroundColor: '#002366', 
-            minHeight: '100vh', 
-            color: '#fff', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            padding: '50px', 
-            width: '100vw', 
+        <div style={{
+            backgroundColor: '#002366',
+            minHeight: '100vh',
+            color: '#fff',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '50px',
+            width: '100vw',
         }}>
-            <h2 style={{ 
-                marginBottom: '20px', 
-                fontSize: '2.5rem', 
+            <h2 style={{
+                marginBottom: '20px',
+                fontSize: '2.5rem',
             }}>Results</h2>
-            <div style={{ 
-                backgroundColor: '#B22234', 
-                borderRadius: '10px', 
-                padding: '30px', 
-                maxWidth: '600px', 
-                width: '100%', 
-                textAlign: 'center', 
+            <div style={{
+                backgroundColor: '#B22234',
+                borderRadius: '10px',
+                padding: '30px',
+                maxWidth: '600px',
+                width: '100%',
+                textAlign: 'center',
             }}>
                 {renderResults()}
                 {renderClinics()}
             </div>
-            <button onClick={() => navigate('/dashboard')} style={{ 
-                background: '#B22234', 
-                color: '#fff', 
-                padding: '10px 20px', 
-                borderRadius: '5px', 
-                border: 'none', 
-                cursor: 'pointer', 
-                fontSize: '16px', 
-                fontWeight: 'bold', 
-                marginTop: '20px', 
+            <button onClick={() => navigate('/dashboard')} style={{
+                background: '#B22234',
+                color: '#fff',
+                padding: '10px 20px',
+                borderRadius: '5px',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                marginTop: '20px',
                 width: '300px',
             }}>
                 Return to Dashboard
