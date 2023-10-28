@@ -92,7 +92,7 @@ const ResultsPage = () => {
                     )}
                     {answers[8] > 0 && (
                         <div>
-                            <p>Given your reports of having thoughts of being better off dead or thoughts about hurting yourself, it is recommended you consider the many suicide prevention resources VA has to offer from self-help resources, suicide prevention programs, mental health services, and many more.</p>
+                            <p>Given your reports of having thoughts of being better off dead or thoughts about hurting yourself, it is recommended you consider the many suicide prevention resources the VA has to offer from self-help resources, suicide prevention programs, mental health services, and many more.</p>
                             <a
                                 href="https://www.veteranscrisisline.net/"
                                 target="_blank"
