@@ -42,7 +42,7 @@ const ResultsPage = () => {
             marginBottom: '20px',
             width: '300px',
         }}>
-            Find VA clinics near you
+            Find VA clinics and resources near you
         </button>
     );
 
