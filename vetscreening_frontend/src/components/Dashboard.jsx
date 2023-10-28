@@ -7,10 +7,19 @@ const base_url = import.meta.env.VITE_BASE_URL;
 const weather_api_key = 'YOUR_OPENWEATHERMAP_API_KEY'; // Add your OpenWeatherMap API key here
 
 const Dashboard = () => {
-    // ... (other states here)
+    const [phq9History, setPHQ9History] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [weather, setWeather] = useState(null);
 
-    // ... (other useEffects here)
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsAuthenticated(true);
+            fetchPHQ9History(token);
+        } else {
+            setIsAuthenticated(false);
+        }
+    }, []);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(async position => {
@@ -25,6 +34,39 @@ const Dashboard = () => {
             }
         });
     }, []);
+
+    const fetchPHQ9History = async (token) => {
+        try {
+            const response = await axios.get(`http://${base_url}/api/users/phq9/list/`, {
+                headers: {
+                    'Authorization': `Token ${token}`,
+                },
+            });
+
+            if (response.status === 200) {
+                setPHQ9History(response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching PHQ-9 history:', error);
+        }
+    };
+
+    const getScreeningResult = (totalScore) => {
+        if (totalScore < 10) {
+            return 'Negative';
+        } else {
+            return 'Positive';
+        }
+    };
+
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        return format(date, "MMMM d, yyyy 'at' h:mmaaa");
+    };
+
+    const getScoreStyle = (totalScore) => {
+        return totalScore < 10 ? {} : { color: 'red' };
+    };
 
     const renderWeather = () => {
         if (weather) {
@@ -50,11 +92,18 @@ const Dashboard = () => {
             justifyContent: 'center',
             padding: '20px'
         }}>
-            {/* ... (other parts of your JSX here) */}
-
+            <h1>Welcome to Your Dashboard</h1>
+            <h4 style={{
+                textAlign: 'center',
+                maxWidth: '600px',
+                margin: '20px auto',
+            }}>
+               See all of your screening results over time 
+            </h4>
+            
             {renderWeather()}
 
-            {/* ... (other parts of your JSX here) */}
+            {/* Your existing JSX code here, including the lists, links, and other components */}
         </div>
     );
 };
